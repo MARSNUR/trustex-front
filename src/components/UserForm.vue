@@ -43,6 +43,8 @@
                 <option value="Owner">Владелец</option>
                 <option value="KYCOPerator">Оператор</option>
                 <option value="Сustomer">Клиент</option>
+                <option value="AgentBP">Агент по переводам</option>
+                <option value="AdminBP">Админ по переводам</option>
               </select>
             </Field>
             <ErrorMessage name="role" class="error-feedback" />
