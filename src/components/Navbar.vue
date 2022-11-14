@@ -70,6 +70,70 @@
       </ul>
     </div>
   </nav>
+
+  <nav class="main-nav" v-if="isAgentBP">
+    <div class="container">
+      <ul class="main-nav__list">
+        <li class="main-nav__item">
+          <router-link class="main-nav__link" to="/">
+            Главная
+          </router-link>
+        </li>
+        <li class="main-nav__item">
+          <router-link class="main-nav__link" to="/announcement-list">
+            P2P
+          </router-link>
+        </li>
+        <li class="main-nav__item">
+          <router-link class="main-nav__link" to="/order-list">
+            Заявки
+          </router-link>
+        </li>
+        <li class="main-nav__item">
+          <router-link class="main-nav__link" to="/announcement-create">
+            Разместить объявление
+          </router-link>
+        </li>
+        <li class="main-nav__item">
+          <router-link class="main-nav__link" to="/bp-order">
+            Быстрые переводы
+          </router-link>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <nav class="main-nav" v-if="isAdminBP">
+    <div class="container">
+      <ul class="main-nav__list">
+        <li class="main-nav__item">
+          <router-link class="main-nav__link" to="/">
+            Главная
+          </router-link>
+        </li>
+        <li class="main-nav__item">
+          <router-link class="main-nav__link" to="/announcement-list">
+            P2P
+          </router-link>
+        </li>
+        <li class="main-nav__item">
+          <router-link class="main-nav__link" to="/order-list">
+            Заявки
+          </router-link>
+        </li>
+        <li class="main-nav__item">
+          <router-link class="main-nav__link" to="/announcement-create">
+            Разместить объявление
+          </router-link>
+        </li>
+        <li class="main-nav__item">
+          <router-link class="main-nav__link" to="/bp-order-admin">
+            Быстрые переводы
+          </router-link>
+        </li>
+      </ul>
+    </div>
+  </nav>
 </template>
 
 <script>
@@ -82,7 +146,7 @@ export default {
     },
     isAdmin() {
       if (this.currentUser && this.currentUser['role']) {
-        return this.currentUser['role'].includes('Admin');
+        return this.currentUser['role'] === 'Admin';
       }
 
       return false;
@@ -104,6 +168,20 @@ export default {
     isOwner() {
       if (this.currentUser && this.currentUser['role']) {
         return this.currentUser['role'].includes('Owner');
+      }
+
+      return false;
+    },
+    isAgentBP() {
+      if (this.currentUser && this.currentUser['role']) {
+        return this.currentUser['role'].includes('AgentBP');
+      }
+
+      return false;
+    },
+    isAdminBP() {
+      if (this.currentUser && this.currentUser['role']) {
+        return this.currentUser['role'].includes('AdminBP');
       }
 
       return false;

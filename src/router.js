@@ -25,6 +25,9 @@ const WithdrawList = () => import("./components/WithdrawList.vue")
 const WithdrawListAdmin = () => import("./components/WithdrawListAdmin.vue")
 const PrivacyPolicy = () => import("./components/PrivacyPolicy.vue")
 const FaqWrapper = () => import("./components/FaqWrapper.vue")
+const BPOrderList = () => import("./components/BPOrderList.vue")
+const BPOrderListForAdmin = () => import("./components/BPOrderListForAdmin.vue")
+const BPOrderCreate = () => import("./components/BPOrderCreate.vue")
 
 const routes = [
   {
@@ -79,6 +82,24 @@ const routes = [
     name: "user",
     // lazy-loaded
     component: UserList,
+  },
+  {
+    path: "/bp-order",
+    name: "bp-order",
+    // lazy-loaded
+    component: BPOrderList,
+  },
+  {
+    path: "/bp-order-admin",
+    name: "bp-order-admin",
+    // lazy-loaded
+    component: BPOrderListForAdmin,
+  },
+  {
+    path: "/bp-order-create",
+    name: "bp-order-create",
+    // lazy-loaded
+    component: BPOrderCreate,
   },
   {
     path: "/user-create",
